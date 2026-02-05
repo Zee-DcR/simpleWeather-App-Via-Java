@@ -16,9 +16,19 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>src/resources/clear.png</name>
+			<type>1</type>
+			<location>C:/editor/weatherApplicatioNovice/src/resources/clear.png</location>
+		</link>
+		<link>
 			<name>src/resources/cloudy.png</name>
 			<type>1</type>
 			<location>C:/editor/weatherApplicatioNovice/src/resources/cloudy.png</location>
+		</link>
+		<link>
+			<name>src/resources/foggy.png</name>
+			<type>1</type>
+			<location>C:/editor/weatherApplicatioNovice/src/resources/foggy.png</location>
 		</link>
 		<link>
 			<name>src/resources/searched.png</name>
