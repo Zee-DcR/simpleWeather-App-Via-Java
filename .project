@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>weatherApplicatioNovice</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>src/resources/cloudy.png</name>
+			<type>1</type>
+			<location>C:/editor/weatherApplicatioNovice/src/resources/cloudy.png</location>
+		</link>
+		<link>
+			<name>src/resources/searched.png</name>
+			<type>1</type>
+			<location>C:/editor/weatherApplicatioNovice/src/resources/searched.png</location>
+		</link>
+	</linkedResources>
+</projectDescription>
