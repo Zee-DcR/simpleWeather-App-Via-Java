@@ -16,9 +16,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>src/resources/clear.png</name>
+			<name>src/resources/clear-removebg-preview.png</name>
 			<type>1</type>
-			<location>C:/editor/weatherApplicatioNovice/src/resources/clear.png</location>
+			<location>C:/editor/weatherApplicatioNovice/src/resources/clear-removebg-preview.png</location>
 		</link>
 		<link>
 			<name>src/resources/cloudy.png</name>
@@ -31,9 +31,29 @@
 			<location>C:/editor/weatherApplicatioNovice/src/resources/foggy.png</location>
 		</link>
 		<link>
+			<name>src/resources/huumidity.png</name>
+			<type>1</type>
+			<location>C:/editor/weatherApplicatioNovice/src/resources/huumidity.png</location>
+		</link>
+		<link>
+			<name>src/resources/rainy.png</name>
+			<type>1</type>
+			<location>C:/editor/weatherApplicatioNovice/src/resources/rainy.png</location>
+		</link>
+		<link>
 			<name>src/resources/searched.png</name>
 			<type>1</type>
 			<location>C:/editor/weatherApplicatioNovice/src/resources/searched.png</location>
+		</link>
+		<link>
+			<name>src/resources/snowwy.png</name>
+			<type>1</type>
+			<location>C:/editor/weatherApplicatioNovice/src/resources/snowwy.png</location>
+		</link>
+		<link>
+			<name>src/resources/thunderstorm.png</name>
+			<type>1</type>
+			<location>C:/editor/weatherApplicatioNovice/src/resources/thunderstorm.png</location>
 		</link>
 	</linkedResources>
 </projectDescription>
