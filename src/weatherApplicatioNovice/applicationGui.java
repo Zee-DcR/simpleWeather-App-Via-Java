@@ -11,25 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class applicationGui extends JFrame {
-
-//    private String loc = (String) "Manila";
-//
-//    JSONObject data = apIBackend.wedData(loc);
-//
-//    
-//    private double tempData;
-//    private int humidityData;
-//    private double windSpeedData;
-//    private String weatherFData;
-
-	private	JSONObject weatherDate;
-protected ImageIcon ororiginalIcon1;
-
     
     applicationGui() {
-        super("weather app");
-        
-        
+        super("weather app");    
         setSize(300,580);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,24 +21,8 @@ protected ImageIcon ororiginalIcon1;
         setLocationRelativeTo(null);
         setResizable(false);
         guiComponents();
-  
-    	
-
         setVisible(true);
     }
-   
-    
-//    private void fetchWeather(String location) {
-//    	
-//    	
-//    	if (data != null) {
-//    		tempData = (double) data.get("temps");
-//    		humidityData = ((Long) data.get("humidity")).intValue();
-//    		windSpeedData = (double) data.get("windSpeed");
-//    		weatherFData = (String) data.get("weather");
-//    	}
-//    }
-    
     
     
     private void guiComponents() {
@@ -92,8 +60,8 @@ protected ImageIcon ororiginalIcon1;
         add(wind2);
 
         JLabel location = new JLabel("");
-        location.setBounds(0,57,300,38); // full width, fixed vertical position
-        location.setHorizontalAlignment(SwingConstants.CENTER); // center text horizontally
+        location.setBounds(20,57,300,38); 
+        location.setHorizontalAlignment(SwingConstants.CENTER); 
         location.setFont(new Font("Dialog",Font.BOLD,30));
         add(location);
         
@@ -103,11 +71,11 @@ protected ImageIcon ororiginalIcon1;
         add(hum2);
         
         JLabel hum = new JLabel("");
-        hum.setBounds(175,510,300,20);
+        hum.setBounds(185,510,300,20);
         hum.setFont(new Font("Dialog",Font.PLAIN,20));
         add(hum);
         
-        int frameWidth = getWidth(); // or use your known frame width
+        int frameWidth = getWidth(); 
     
 
         JLabel text = new JLabel("City");
@@ -155,7 +123,6 @@ protected ImageIcon ororiginalIcon1;
                     ImageIcon scaledIcon = new ImageIcon(resizedImage);
                     w.setIcon(scaledIcon);
                     text.setText("Clear");
-
                     break;
 
                 case "Cloudy":
@@ -164,7 +131,6 @@ protected ImageIcon ororiginalIcon1;
                     ImageIcon scaledIcon1 = new ImageIcon(resizedImage1);
                     w.setIcon(scaledIcon1);
                     text.setText("Cloudy");
-    
                      break;
 
                 case "Foggy":
@@ -173,7 +139,6 @@ protected ImageIcon ororiginalIcon1;
                     ImageIcon scaledIcon2 = new ImageIcon(resizedImage2);
                     w.setIcon(scaledIcon2);
                     text.setText("Foggy");
- 
                     break;
                     
                 case "Rainy":	
@@ -182,7 +147,6 @@ protected ImageIcon ororiginalIcon1;
                     ImageIcon scaledIcon3 = new ImageIcon(resizedImage3);
                     w.setIcon(scaledIcon3);
                     text.setText("Rainy");
-    
                     break;
 
                 case "Thunderstorm":	
@@ -190,8 +154,7 @@ protected ImageIcon ororiginalIcon1;
                     Image resizedImage4 = originalIcon4.getImage().getScaledInstance(210, 210, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon4 = new ImageIcon(resizedImage4);
                     w.setIcon(scaledIcon4);
-                    text.setText("Thunderstorm");
-              
+                    text.setText("Thunderstorm");              
                     break;
 
                 case "Snowy":    
@@ -199,13 +162,9 @@ protected ImageIcon ororiginalIcon1;
                     Image resizedImage5 = originalIcon5.getImage().getScaledInstance(210, 210, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon5 = new ImageIcon(resizedImage5);
                     w.setIcon(scaledIcon5);
-                    text.setText("Snowy");
-                 
+                    text.setText("Snowy");             
                     break;
             	}
-            
-
-
             	
             	
             	double tempData = (double) data.get("temps");
@@ -220,16 +179,8 @@ protected ImageIcon ororiginalIcon1;
             	repaint();
             } 
         });
-
    
     }
-
-
-  
-        
-    
-     
-
 
     private ImageIcon loadImage(String img) {
         try {
