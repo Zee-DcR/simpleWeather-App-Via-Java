@@ -37,11 +37,8 @@ protected ImageIcon ororiginalIcon1;
         setLocationRelativeTo(null);
         setResizable(false);
         guiComponents();
-        temps();
-        windSpeed();
-        humidity();
-        loc("manila");
   
+    	
 
         setVisible(true);
     }
@@ -72,33 +69,67 @@ protected ImageIcon ororiginalIcon1;
         srB.setBounds(245,10,38,38);
         add(srB);
 
-        ImageIcon originalIcon = loadImage("C:/editor/weatherApplicatioNovice/src/resources/windspeeds.png");
-        Image resizedImage = originalIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+        ImageIcon originalIcon = loadImage("C:/editor/weatherApplicatioNovice/src/resources/windspeed.png");
+        Image resizedImage = originalIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         JLabel img = new JLabel(new ImageIcon(resizedImage));
-        img.setBounds(50, 390, 80, 80);
+        img.setBounds(50, 410, 80, 80);
         add(img);
 
-        ImageIcon humidityIcon = loadImage("C:/editor/weatherApplicatioNovice/src/resources/huumidity.png");
-        Image humidityIcon1 = humidityIcon.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+        ImageIcon humidityIcon = loadImage("C:/editor/weatherApplicatioNovice/src/resources/humidity.png");
+        Image humidityIcon1 = humidityIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         JLabel img2 = new JLabel(new ImageIcon(humidityIcon1));
-        img2.setBounds(180, 390, 70, 70);
+        img2.setBounds(180, 420, 70, 70);
         add(img2);
         
+        JLabel wind = new JLabel("Wind Speed:");
+        wind.setBounds(30,480,300,20);
+        wind.setFont(new Font("Dialog",Font.PLAIN,20));
+        add(wind);
+
+        JLabel wind2 = new JLabel("");
+        wind2.setBounds(30,510,300,20);
+        wind2.setFont(new Font("Dialog",Font.PLAIN,20));
+        add(wind2);
+
+        JLabel location = new JLabel("");
+        location.setBounds(0,57,300,38); // full width, fixed vertical position
+        location.setHorizontalAlignment(SwingConstants.CENTER); // center text horizontally
+        location.setFont(new Font("Dialog",Font.BOLD,30));
+        add(location);
         
+        JLabel hum2 = new JLabel("Humidity");
+        hum2.setBounds(175,480,300,20);
+        hum2.setFont(new Font("Dialog",Font.PLAIN,20));
+        add(hum2);
+        
+        JLabel hum = new JLabel("");
+        hum.setBounds(175,510,300,20);
+        hum.setFont(new Font("Dialog",Font.PLAIN,20));
+        add(hum);
+        
+        int frameWidth = getWidth(); // or use your known frame width
+    
+
+        JLabel text = new JLabel("City");
+        text.setBounds(0, 365, frameWidth, 40);
+        text.setHorizontalAlignment(SwingConstants.CENTER);
+        text.setFont(new Font("Dialog",Font.PLAIN,35));
+        add(text);
+        
+        JLabel temps = new JLabel("Search");
+    	temps.setBounds(0, 328, frameWidth, 40);
+    	temps.setHorizontalAlignment(SwingConstants.CENTER);
+    	temps.setFont(new Font("Dialog", Font.BOLD, 40));
+    	add(temps);
+
         
 
-        ImageIcon originalIc = loadImage("C:/editor/weatherApplicatioNovice/src/resources/foggy.png");
-        // Resize
+        ImageIcon originalIc = loadImage("C:/editor/weatherApplicatioNovice/src/resources/titleIcon.png");
         Image resizedIma = originalIc.getImage().getScaledInstance(210, 210, Image.SCALE_SMOOTH);
         ImageIcon scaledI = new ImageIcon(resizedIma);
-
         JLabel w =new JLabel(scaledI);
-        w.setBounds( 0, 50, 300, 300);
-        
-        add(w);
-
-        // cloud
-        
+        w.setBounds( -10, 48, 300, 300);
+        add(w);        
         
         srB.addActionListener(new ActionListener() {
             @Override
@@ -108,180 +139,97 @@ protected ImageIcon ororiginalIcon1;
                 if (userInput.replaceAll("\\s", "").length() <= 0) {
                 	return;
                 }
-
-//                JSONObject data = apIBackend.wedData(userInput);
-//                
-//                String weatherCondition = (String) data.get("weather");
-//                
-//                System.out.println(weatherCondition);
+                location.setText(userInput);
                 
-                String x = userInput;
-            	switch (x) {
+                JSONObject data = apIBackend.wedData(userInput);
+                
+                String weatherCondition = (String) data.get("weather");
+                
+                System.out.println(weatherCondition);
+                
+            	switch (weatherCondition) {
+  
                 case "Clear":
                 	ImageIcon originalIcon = loadImage("C:/editor/weatherApplicatioNovice/src/resources/cloudy.png");
-                    Image resizedImage = originalIcon.getImage().getScaledInstance(280, 280, Image.SCALE_SMOOTH);
+                    Image resizedImage = originalIcon.getImage().getScaledInstance(210, 210, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon = new ImageIcon(resizedImage);
                     w.setIcon(scaledIcon);
-                  
-                    JLabel type = new JLabel("Cloudy");
-                    type.setBounds(105,350,230,38);
-                    type.setFont(new Font("Dialog",Font.BOLD , 25));
-                    add(type);
-                   
-                    
+                    text.setText("Clear");
+
                     break;
 
                 case "Cloudy":
-                	
-                	
-                	
-                	
-                    ImageIcon originalIcon1 = loadImage("C:/editor/weatherApplicatioNovice/src/resources/cloudy.png");
-                    // Resize
-                    Image resizedImage1 = originalIcon1.getImage().getScaledInstance(380, 380, Image.SCALE_SMOOTH);
+                	ImageIcon originalIcon1 = loadImage("C:/editor/weatherApplicatioNovice/src/resources/clear.png");
+                    Image resizedImage1 = originalIcon1.getImage().getScaledInstance(210, 210, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon1 = new ImageIcon(resizedImage1);
-                    
-                    JLabel type1 = new JLabel("Cloudy");
-                    type1.setBounds(105,350,230,38);
-                    type1.setFont(new Font("Dialog",Font.BOLD , 25));
-                    add(type1);
-                    break;
+                    w.setIcon(scaledIcon1);
+                    text.setText("Cloudy");
+    
+                     break;
 
                 case "Foggy":
-                	
-                	
-                	
-                	
-                	
-                    ImageIcon originalIcon2 = loadImage("C:/editor/weatherApplicatioNovice/src/resources/foggy.png");
-                    // Resize
-                    Image resizedImage2 = originalIcon2.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+                	ImageIcon originalIcon2 = loadImage("C:/editor/weatherApplicatioNovice/src/resources/foggy.png");
+                    Image resizedImage2 = originalIcon2.getImage().getScaledInstance(210, 210, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon2 = new ImageIcon(resizedImage2);
-                    JLabel img2 = new JLabel(scaledIcon2);
-                    img2.setBounds(-55, 15, 400, 400);
-                    add(img2);
-                    JLabel type2 = new JLabel("Foggy");
-                    type2.setBounds(105,350,230,38);
-                    type2.setFont(new Font("Dialog",Font.BOLD , 25));
-                    add(type2);
+                    w.setIcon(scaledIcon2);
+                    text.setText("Foggy");
+ 
                     break;
                     
-                case "Rainy":
-                	
-                	
-                	
-                	
-                	
-                    ImageIcon originalIcon3 = loadImage("C:/editor/weatherApplicatioNovice/src/resources/rainy.png");
-                    // Resize
-                    Image resizedImage3 = originalIcon3.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+                case "Rainy":	
+                	ImageIcon originalIcon3 = loadImage("C:/editor/weatherApplicatioNovice/src/resources/rainy.png");
+                    Image resizedImage3 = originalIcon3.getImage().getScaledInstance(210, 210, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon3 = new ImageIcon(resizedImage3);
-                    JLabel img3 = new JLabel(scaledIcon3);
-                    img3.setBounds(-55, 10, 400, 400);
-                    add(img3);
-                    JLabel type3 = new JLabel("Rainy");
-                    type3.setBounds(110,350,235,38);
-                    type3.setFont(new Font("Dialog",Font.BOLD , 25));
-                    add(type3);
+                    w.setIcon(scaledIcon3);
+                    text.setText("Rainy");
+    
                     break;
 
-                case "Thunderstorm":
-                	
-                	
-                	
-                	
-                	
-                	
-                	
-                	
-                	
-                    ImageIcon Icon = loadImage("C:/editor/weatherApplicatioNovice/src/resources/thunderstorm.png");
-                    // Resize
-                    Image resizedImg = Icon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
-                    ImageIcon scaledIco = new ImageIcon(resizedImg);
-                    JLabel imge = new JLabel(scaledIco);
-                    imge.setBounds(-55, 15, 400, 400);
-                    add(imge);
-                    JLabel typee = new JLabel("Thunderstorm");
-                    typee.setBounds(65,350,230,38);
-                    typee.setFont(new Font("Dialog",Font.BOLD , 25));
-                    add(typee);
-                    break;
-
-                case "Snowy":
-                	
-                	
-                	
-                	
-                	
-                	
-                	
-                	
-//                	ororiginalIcon1.setIcon(loadImage("C:/editor/weatherApplicatioNovice/src/resources/snowwy.png").getImage());
-
-                    
-                	JLabel type4 = new JLabel("Snowwy");
-                    type4.setBounds(100,350,230,38);
-                    type4.setFont(new Font("Dialog",Font.BOLD , 25));
-                    add(type4);
-                    break;
-            
+                case "Thunderstorm":	
+                	ImageIcon originalIcon4 = loadImage("C:/editor/weatherApplicatioNovice/src/resources/thunderstorm.png");
+                    Image resizedImage4 = originalIcon4.getImage().getScaledInstance(210, 210, Image.SCALE_SMOOTH);
+                    ImageIcon scaledIcon4 = new ImageIcon(resizedImage4);
+                    w.setIcon(scaledIcon4);
+                    text.setText("Thunderstorm");
               
+                    break;
+
+                case "Snowy":    
+                	ImageIcon originalIcon5 = loadImage("C:/editor/weatherApplicatioNovice/src/resources/snowwy.png");
+                    Image resizedImage5 = originalIcon5.getImage().getScaledInstance(210, 210, Image.SCALE_SMOOTH);
+                    ImageIcon scaledIcon5 = new ImageIcon(resizedImage5);
+                    w.setIcon(scaledIcon5);
+                    text.setText("Snowy");
+                 
+                    break;
             	}
             
 
-//                double temps = (double) data.get("temps");          
-                
 
-                
-                
+            	
+            	
+            	double tempData = (double) data.get("temps");
+            	temps.setText(tempData + "C" );
+            	
+            	Long humidityData = (long) ((Long) data.get("humidity")).intValue();
+            	hum.setText(humidityData + "");
+            	
+            	double	windSpeedData = (double) data.get("windSpeed");
+            	wind2.setText(windSpeedData + "");
+            	revalidate();
+            	repaint();
             } 
         });
 
    
     }
 
-    private JLabel locLabel;   // ADD this field at top with other variables
 
-    void loc(String location) {
-        if(locLabel == null){   // create once
-            locLabel = new JLabel(location);
-            locLabel.setBounds(0,70,300,38); // full width, fixed vertical position
-            locLabel.setHorizontalAlignment(SwingConstants.CENTER); // center text horizontally
-            locLabel.setFont(new Font("Dialog",Font.BOLD,30));
-            add(locLabel);
-        } else {                // update text when button clicked
-            locLabel.setText(location);
-        }
-    }
-
-
-           
-     
+  
+        
     
+     
 
-    private void temps() {
-        JLabel temps = new JLabel("10°C");
-        temps.setBounds(90,300,200,40);
-        temps.setFont(new Font("Dialog",Font.BOLD,40));
-        add(temps);
-    }
-
-    private JLabel windSpeed() {
-        JLabel wind = new JLabel("Wind Speed:");
-        wind.setBounds(30,470,300,20);
-        wind.setFont(new Font("Dialog",Font.PLAIN,20));
-        add(wind);
-        return wind;
-    }
-
-    private JLabel humidity() {
-        JLabel hum = new JLabel("Humidity");
-        hum.setBounds(175,470,300,20);
-        hum.setFont(new Font("Dialog",Font.PLAIN,20));
-        add(hum);
-        return hum;
-    }
 
     private ImageIcon loadImage(String img) {
         try {

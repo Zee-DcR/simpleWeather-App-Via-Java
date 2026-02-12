@@ -16,9 +16,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>src/resources/clear-removebg-preview.png</name>
+			<name>src/resources/clear.png</name>
 			<type>1</type>
-			<location>C:/editor/weatherApplicatioNovice/src/resources/clear-removebg-preview.png</location>
+			<location>C:/editor/weatherApplicatioNovice/src/resources/clear.png</location>
 		</link>
 		<link>
 			<name>src/resources/cloudy.png</name>
@@ -31,9 +31,9 @@
 			<location>C:/editor/weatherApplicatioNovice/src/resources/foggy.png</location>
 		</link>
 		<link>
-			<name>src/resources/huumidity.png</name>
+			<name>src/resources/humidity.png</name>
 			<type>1</type>
-			<location>C:/editor/weatherApplicatioNovice/src/resources/huumidity.png</location>
+			<location>C:/editor/weatherApplicatioNovice/src/resources/humidity.png</location>
 		</link>
 		<link>
 			<name>src/resources/rainy.png</name>
@@ -54,6 +54,11 @@
 			<name>src/resources/thunderstorm.png</name>
 			<type>1</type>
 			<location>C:/editor/weatherApplicatioNovice/src/resources/thunderstorm.png</location>
+		</link>
+		<link>
+			<name>src/resources/windspeed.png</name>
+			<type>1</type>
+			<location>C:/editor/weatherApplicatioNovice/src/resources/windspeed.png</location>
 		</link>
 	</linkedResources>
 </projectDescription>
