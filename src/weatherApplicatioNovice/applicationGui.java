@@ -13,42 +13,63 @@ import java.awt.event.ActionListener;
 public class applicationGui extends JFrame {
     
     applicationGui() {
-        super("weather app");    
+        super("weather app");   
+        
+        //frame
         setSize(300,580);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setBackground(Color.WHITE);
         setLocationRelativeTo(null);
         setResizable(false);
+        
+        // gui
         guiComponents();
         setVisible(true);
     }
     
     
     private void guiComponents() {
+    	
+    	int frameWidth = getWidth(); 
 
+    	
+    	//search text field or stf
         JTextField stf = new JTextField();
         stf.setBounds(10,10,230,38);
         stf.setFont(new Font("Dialog",Font.PLAIN,24));
         add(stf);
 
+        //seachButton
         JButton srB = new JButton(loadImage("C:/editor/weatherApplicatioNovice/src/resources/searched.png"));
         srB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         srB.setBounds(245,10,38,38);
         add(srB);
-
+        
+        //windSpeed png
         ImageIcon originalIcon = loadImage("C:/editor/weatherApplicatioNovice/src/resources/windspeed.png");
         Image resizedImage = originalIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         JLabel img = new JLabel(new ImageIcon(resizedImage));
         img.setBounds(50, 410, 80, 80);
         add(img);
 
+        // Humidity png
         ImageIcon humidityIcon = loadImage("C:/editor/weatherApplicatioNovice/src/resources/humidity.png");
         Image humidityIcon1 = humidityIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         JLabel img2 = new JLabel(new ImageIcon(humidityIcon1));
         img2.setBounds(180, 420, 70, 70);
         add(img2);
         
+        //MAIN PICTURE
+        ImageIcon originalIc = loadImage("C:/editor/weatherApplicatioNovice/src/resources/titleIcon.png");
+        Image resizedIma = originalIc.getImage().getScaledInstance(210, 210, Image.SCALE_SMOOTH);
+        ImageIcon scaledI = new ImageIcon(resizedIma);
+        JLabel w =new JLabel(scaledI);
+        w.setBounds( -10, 48, 300, 300);
+        add(w);        
+     
+        
+        // THE TEXTS
         JLabel wind = new JLabel("Wind Speed:");
         wind.setBounds(30,480,300,20);
         wind.setFont(new Font("Dialog",Font.PLAIN,20));
@@ -60,7 +81,7 @@ public class applicationGui extends JFrame {
         add(wind2);
 
         JLabel location = new JLabel("");
-        location.setBounds(20,57,300,38); 
+        location.setBounds(0,57,300,38); 
         location.setHorizontalAlignment(SwingConstants.CENTER); 
         location.setFont(new Font("Dialog",Font.BOLD,30));
         add(location);
@@ -74,9 +95,6 @@ public class applicationGui extends JFrame {
         hum.setBounds(185,510,300,20);
         hum.setFont(new Font("Dialog",Font.PLAIN,20));
         add(hum);
-        
-        int frameWidth = getWidth(); 
-    
 
         JLabel text = new JLabel("City");
         text.setBounds(0, 365, frameWidth, 40);
@@ -90,23 +108,16 @@ public class applicationGui extends JFrame {
     	temps.setFont(new Font("Dialog", Font.BOLD, 40));
     	add(temps);
 
-        
-
-        ImageIcon originalIc = loadImage("C:/editor/weatherApplicatioNovice/src/resources/titleIcon.png");
-        Image resizedIma = originalIc.getImage().getScaledInstance(210, 210, Image.SCALE_SMOOTH);
-        ImageIcon scaledI = new ImageIcon(resizedIma);
-        JLabel w =new JLabel(scaledI);
-        w.setBounds( -10, 48, 300, 300);
-        add(w);        
-        
+    	
+    	//ACTION WHEN THE BUTTON IS CLICKED
         srB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 String userInput = stf.getText();
                 if (userInput.replaceAll("\\s", "").length() <= 0) {
-                	return;
-                }
+                	return;             }
+                
                 location.setText(userInput);
                 
                 JSONObject data = apIBackend.wedData(userInput);
